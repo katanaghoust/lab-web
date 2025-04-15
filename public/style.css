@@ -1,0 +1,17 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f0f0f0;
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

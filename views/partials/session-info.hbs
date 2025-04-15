@@ -1,0 +1,10 @@
+<div class='session-info'>
+  {{#if user}}
+    Вы вошли как
+    <strong>{{user.name}}</strong>
+  {{else}}
+    <a href='/?auth=true'>Войти</a>
+    или
+    <a href='#'>Зарегистрироваться</a>
+  {{/if}}
+</div>
