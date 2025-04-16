@@ -1,12 +1,26 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
+import * as path from 'path';
+import * as hbs from 'hbs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.useStaticAssets(join(__dirname, '..', 'public')); // Укажите папку с статикой
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
+
+  // Устанавливаем путь для views
+  app.setBaseViewsDir(path.join(__dirname, '..', 'views'));
+
+  // Регистрируем папку для partials
+  hbs.registerPartials(path.join(__dirname, '..', 'views/partials'));
+
+  // Устанавливаем движок шаблонов
+  app.setViewEngine('hbs');
+
+  // Настроим статику
+  app.useStaticAssets(path.join(__dirname, '..', 'public'), {
+    prefix: '/public/',
+  });
+
+  await app.listen(3000);
 }
 bootstrap();

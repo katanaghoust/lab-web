@@ -1,0 +1,18 @@
+<nav>
+  <ul class="header-links">
+    <li><a href="/public/html/Falcon.html">HOME</a></li>
+    <li><a href="sales.html">SALES</a></li>
+    <li><a href="Constructor.html">CONSTRUCTOR</a></li>
+    <li><a href="comments.html">COMMENTS</a></li>
+    <li><a href="news.html">NEWS</a></li>
+    <li><a href="media.html">MEDIA</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="sell_my_car.html">SELL MY CAR</a></li>
+    <li><a href="Support.html">SUPPORT</a></li>
+    {{#if user}}
+      <li class="menu-item"><a href="/?auth=false">LOG OUT</a></li>
+    {{else}}
+      <li class="menu-item"><a href="/?auth=true">LOG IN</a></li>
+    {{/if}}
+  </ul>
+</nav>

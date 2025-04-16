@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+  <script src="/public/js/app.js" defer></script>
+
+</head>
+<body class="container">
+{{> header headerTitle="Welcome to Falcon Motors family"}}
+
+<main>
+  <article>
+  </article>
+
+  <section class="top-sellers">
+    {{#each cars}}
+      <div class="car-item">
+        <img src="{{this.image}}" alt="{{this.model}}" class="car-image">
+        <div class="car-info">
+          <h3>{{this.model}}</h3>
+          <p>Price: {{this.price}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </section>
+
+  <section class="table-container">
+    <h3>Технические характеристики автомобилей</h3>
+    <div class="table-grid">
+      <div class="row-header">
+        <div>Модель</div>
+        <div>Цена</div>
+        <div>Тип двигателя</div>
+        <div>Мощность</div>
+        <div>Привод</div>
+      </div>
+      {{#each specs}}
+        <div class="row">
+          <div>{{this.model}}</div>
+          <div>{{this.price}}</div>
+          <div>{{this.engine}}</div>
+          <div>{{this.power}}</div>
+          <div>{{this.drive}}</div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</main>
+
+{{> footer}}
+</body>
+</html>
