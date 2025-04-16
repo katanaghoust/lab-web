@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма обратной связи</title>
+  <link rel="stylesheet" href="../css/Support.css">
+  <script src="../js/app.js" defer></script>
+</head>
+
+<body>
+<header>
+  <a href="/"><img src="../img/sokollogo.jpg"></a>
+  <h1>Welcome to Falcon Motors family</h1>
+  <nav>
+    <ul class="header-links">
+      <li><a href="Falcon.html">HOME  </a></li>
+      <li><a href="sales.html">SALES  </a></li>
+      <li><a href="Constructor.html">CONSTRUCTOR  </a></li>
+      <li><a href="comments.html">COMMENTS  </a></li>
+      <li><a href="news.html">NEWS  </a></li>
+      <li><a href="media.html">MEDIA  </a></li>
+      <li><a href="contact.html">CONTACT  </a></li>
+      <li><a href="sell_my_car.html">SELL MY CAR</a></li>
+      <li><a href="Support.html">SUPPORT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="null">
+    <h1>Falcon motors</h1>
+  </section>
+  <section id="container">
+    <h1>ТехПоддержка</h1>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Ваше имя" required>
+      <input type="email" id="email" placeholder="Ваш email" required>
+      <textarea id="message" placeholder="Ваше сообщение" required></textarea>
+      <input type="file" id="fileInput" accept="image/*">
+      <button type="submit">Отправить</button>
+    </form>
+    <div id="messages"></div>
+  </section>
+  <div id="toast" class="toast"></div>
+  <script src="../js/Support.js"></script>
+
+</main>
+
+<footer id="footer"></footer>
+</body>
+</html>

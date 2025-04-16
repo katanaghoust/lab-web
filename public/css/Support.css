@@ -1,0 +1,247 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #007bff;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  width: 100%;
+}
+* {
+  margin-left: 0;
+}
+.container {
+  margin: 0;
+  padding: 20px;
+  width: 100%;
+}
+header {
+  background-color: #333;
+  color: #b1adad;
+  text-align: center;
+  padding: 1rem;
+  width: 97.5%;
+}
+
+.header-links a {
+  color: #b1adad;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-links a:hover {
+  color: #f1f1f5;
+}
+
+.header-links .active {
+  font-weight: bold;
+  color: whitesmoke; /* Цвет активного элемента */
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  display: inline;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+main {
+  background-color: white;
+}
+h2 {
+  text-align: center;
+  margin-top: 60px;
+}
+
+h3 {
+  text-align: center;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  clear: both;
+  width: 97.5%;
+
+}
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 25px;
+}
+.top-sellers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+.car-item {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.car-item:hover {
+  transform: translateY(-5px);
+}
+.car-image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.car-info {
+  padding: 15px;
+}
+.price {
+  font-weight: bold;
+  color: #ff4500;
+  font-size: 24px;
+}
+header a img {
+  width: 220px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/*табличка*/
+.table-container {
+  margin-top: 30px;
+}
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  padding-bottom: 100px;
+}
+
+.row-header {
+  font-weight: bold;
+  background-color: #e0e0e0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+div {
+  padding: 10px;
+  text-align: center;
+}
+
+.table-grid > * {
+  display: contents;
+}
+
+.table-grid > .row > * {
+  width: auto;
+}
+.preloader {
+  display: block;
+  font-size: 24px;
+  text-align: center;
+  margin: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  margin: 10px;
+  width: 150px;
+  height: auto;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.preloader {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+.comment {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+h5 {
+  text-align: center;
+  font-size: 25px;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+  .top-sellers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .top-sellers {
+    grid-template-columns: 1fr;
+  }
+}
+
