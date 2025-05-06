@@ -1,28 +1,35 @@
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+document
+  .getElementById('contactForm')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  const fileInput = document.getElementById('fileInput');
-  const file = fileInput.files[0];
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
 
-  const messages = JSON.parse(localStorage.getItem('messages')) || [];
-  const newMessage = { name, email, message, file: file ? URL.createObjectURL(file) : null };
-  messages.push(newMessage);
-  localStorage.setItem('messages', JSON.stringify(messages));
+    const messages = JSON.parse(localStorage.getItem('messages')) || [];
+    const newMessage = {
+      name,
+      email,
+      message,
+      file: file ? URL.createObjectURL(file) : null,
+    };
+    messages.push(newMessage);
+    localStorage.setItem('messages', JSON.stringify(messages));
 
-  showToast('Сообщение отправлено!');
-  displayMessages();
-  this.reset();
-});
+    showToast('Сообщение отправлено!');
+    displayMessages();
+    this.reset();
+  });
 
 function displayMessages() {
   const messages = JSON.parse(localStorage.getItem('messages')) || [];
   const messagesDiv = document.getElementById('messages');
   messagesDiv.innerHTML = '';
 
-  messages.forEach(msg => {
+  messages.forEach((msg) => {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
     messageElement.innerHTML = `
@@ -42,6 +49,5 @@ function showToast(message) {
     toast.style.display = 'none';
   }, 3000);
 }
-
 
 window.onload = displayMessages;

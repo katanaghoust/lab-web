@@ -1,0 +1,15 @@
+<h1>Все характеристики</h1>
+<ul>
+  {{#each specs}}
+    <li>
+      <a href='/specs/{{this.id}}'>
+        {{this.car.model}}
+        —
+        {{this.engine}},
+        {{this.power}},
+        {{this.drive}}
+      </a>
+    </li>
+  {{/each}}
+</ul>
+<a href='/specs/create'>Добавить</a>

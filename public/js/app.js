@@ -1,9 +1,10 @@
-(function() {
+(function () {
   // Подсветка активного пункта меню
   const footerLinks = document.querySelectorAll('.header-links a'); // Все ссылки в подвале
-  const currentPage = document.location.pathname.split('/').pop() || "Falcon.html"; // Имя текущей страницы или 'index.html' по умолчанию
+  const currentPage =
+    document.location.pathname.split('/').pop() || 'Falcon.html'; // Имя текущей страницы или 'index.html' по умолчанию
 
-  footerLinks.forEach(link => {
+  footerLinks.forEach((link) => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active'); // Добавляем класс 'active' к текущей странице
     }

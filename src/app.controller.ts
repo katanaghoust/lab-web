@@ -1,9 +1,13 @@
-import { Controller, Get, Render, Query } from '@nestjs/common';
+import { Controller, Get, Render, Query, UseGuards } from '@nestjs/common';
+import { AuthGuard } from './auth/auth.guard';
+import { ApiCookieAuth } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
   @Get()
-  @Render('index') // рендерит views/index.hbs, подставляя в layouts/main.hbs
+  @Render('index')
+  @ApiCookieAuth()
+  @UseGuards(new AuthGuard())
   getIndex(@Query('auth') auth: string) {
     const isAuthenticated = auth === 'true';
     return {
@@ -92,5 +96,28 @@ export class AppController {
         },
       ],
     };
+  }
+  @Get('signup')
+  @Render('signup')
+  async signup() {
+    return {
+      styles: '/css/auth.css',
+      layout: 'layouts/main',
+      title: 'signup',
+    };
+  }
+
+  @Get('login')
+  @Render('login')
+  async login() {
+    return {
+      styles: '/css/auth.css',
+      layout: 'layouts/main',
+      title: 'signin',
+    };
+  }
+
+  getHello() {
+    return undefined;
   }
 }

@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Car {
+  id        Int       @id @default(autoincrement())
+  model     String
+  price     String
+  image     String
+  specs     Spec?
+
+  orders    Order[]   @relation("CarOrders")
+  reviews   Review[]  @relation("CarReviews")
+}
+
+model Spec {
+  id        Int    @id @default(autoincrement())
+  carId     Int    @unique
+  car       Car    @relation(fields: [carId], references: [id])
+  engine    String
+  power     String
+  drive     String
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  name      String
+  isAdmin   Boolean   @default(false)
+
+  orders    Order[]   @relation("UserOrders")
+  reviews   Review[]  @relation("UserReviews")
+}
+
+model Order {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  carId     Int
+  user      User      @relation("UserOrders", fields: [userId], references: [id])
+  car       Car       @relation("CarOrders", fields: [carId], references: [id])
+  createdAt DateTime  @default(now())
+  status    String    @default("pending")
+}
+
+model Review {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  carId     Int
+  user      User      @relation("UserReviews", fields: [userId], references: [id])
+  car       Car       @relation("CarReviews", fields: [carId], references: [id])
+  content   String
+  rating    Int
+  createdAt DateTime  @default(now())
+}

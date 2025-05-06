@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Car {
+  """Уникальный идентификатор автомобиля"""
+  id: Int!
+
+  """Ссылка на изображение автомобиля"""
+  image: String!
+
+  """Модель автомобиля"""
+  model: String!
+
+  """Цена автомобиля в USD"""
+  price: String!
+
+  """Характеристики автомобиля"""
+  specs: Spec
+}
+
+input CreateCarInput {
+  """Ссылка на изображение автомобиля"""
+  image: String
+
+  """Модель автомобиля"""
+  model: String!
+
+  """Цена автомобиля в USD"""
+  price: String
+}
+
+type Mutation {
+  createCar(input: CreateCarInput!): Car!
+  deleteCar(id: Int!): Car!
+  updateCarImage(input: UpdateCarImageInput!): Car!
+  updateCarModel(input: UpdateCarModelInput!): Car!
+  updateCarPrice(input: UpdateCarPriceInput!): Car!
+}
+
+type PaginatedCars {
+  """Список автомобилей"""
+  data: [Car!]!
+
+  """Лимит записей на страницу"""
+  limit: Int!
+
+  """Текущая страница"""
+  page: Int!
+
+  """Общее количество автомобилей"""
+  total: Int!
+}
+
+type Query {
+  findAllCars(limit: Int! = 10, page: Int! = 1): PaginatedCars!
+  findCar(id: Int!): Car!
+}
+
+type Spec {
+  """ID связанного автомобиля"""
+  carId: Int!
+
+  """Тип привода"""
+  drive: String!
+
+  """Тип двигателя"""
+  engine: String!
+
+  """Уникальный идентификатор характеристик"""
+  id: Int!
+
+  """Мощность двигателя"""
+  power: String!
+}
+
+input UpdateCarImageInput {
+  """Уникальный идентификатор автомобиля"""
+  id: Int!
+
+  """Новая ссылка на изображение"""
+  image: String!
+}
+
+input UpdateCarModelInput {
+  """Уникальный идентификатор автомобиля"""
+  id: Int!
+
+  """Новая модель автомобиля"""
+  model: String!
+}
+
+input UpdateCarPriceInput {
+  """Уникальный идентификатор автомобиля"""
+  id: Int!
+
+  """Новая цена автомобиля"""
+  price: String!
+}
